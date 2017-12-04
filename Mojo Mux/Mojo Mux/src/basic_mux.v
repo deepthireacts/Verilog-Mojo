@@ -1,22 +1,13 @@
-module basic_mux ( select, d, q )
+module basic_mux( select, d, q );
 
 input[1:0] select;
 input[3:0] d;
-output q;
+output     q;
 
-always @( select or d )
-begin
-   if( select == 0)
-      q = d[0];
+wire      q;     //Wire assignment is used for connecting
+wire[1:0] select;//different elements
+wire[3:0] d;
 
-   if( select == 1)
-      q = d[1];
-
-   if( select == 2)
-      q = d[2];
-
-   if( select == 3)
-      q = d[3];
-end
+assign q = d[select];//Sets the d value array selected by select to the output of Q
 
 endmodule

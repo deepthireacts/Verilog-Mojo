@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-12-03T11:12:15</DateModified>
+  <DateModified>2017-12-04T19:51:23</DateModified>
   <ModuleName>mojo_top</ModuleName>
   <SummaryTimeStamp>2013-04-16T10:54:27</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/simon/Documents/Work/Programming/Verilog/Verilog_Git/Mojo Test Bench Project/Mojo Test Bench Project/iseconfig/mojo_top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/simon/Documents/Work/Programming/Verilog/Verilog_Git/Mojo Test Bench Project/Mojo Test Bench Project/syn\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/simon/Documents/Work/Programming/Verilog/Verilog_Git/Mojo Mux/Mojo Mux/iseconfig/mojo_top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/simon/Documents/Work/Programming/Verilog/Verilog_Git/Mojo Mux/Mojo Mux/syn\</ImplementationReportsDirectory>
   <DateInitialized>2012-11-08T12:38:20</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
