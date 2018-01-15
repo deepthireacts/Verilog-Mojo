@@ -1,10 +1,15 @@
 module d_flip_flop 
-( input C,
-  input D,
-  output Q,
-  output not_Q
+( C,
+  D,
+  Q,
+  not_Q
 );
 
+input		C;
+input		D;
+
+output 		Q;
+output		not_Q;
 
   initial 
     begin
