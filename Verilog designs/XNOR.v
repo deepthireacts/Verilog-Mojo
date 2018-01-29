@@ -4,8 +4,8 @@
 *          legal contents of this software build
 ***************************************************************************************************
 *Project:          Verilog Modules
-*File Name:        XOR.v
-*Description:      This file takes two inputs and outputs the XOR output of them
+*File Name:        XNOR.v
+*Description:      This file takes two inputs and outputs the XNOR output of them
 ***************************************************************************************************
 *Change History:
 *   Version        Date            Author          Description
@@ -16,10 +16,10 @@
 *Logic table:
 *   Input 1  |     Input 2    |    Output
 *   -----    |     -----      |    ------
-*     0      |       0        |       0
-*     0      |       1        |       1
-*     1      |       0        |       1
-*     1      |       1        |       0
+*     0      |       0        |       1
+*     0      |       1        |       0
+*     1      |       0        |       0
+*     1      |       1        |       1
 *
 ***************************************************************************************************
 *Parameters:
@@ -30,7 +30,7 @@
 *   outputSignal   Output          This is the output boolean signal 
 *
 ***************************************************************************************************/
-module NAND
+module XNOR
 (
     inputSignalOne,
     inputSignalTwo,
@@ -42,6 +42,6 @@ input  inputSignalTwo;
 
 output outputSignal;
 
-assign outputSignal = (inputSignalOne ^ inputSignalTwo);
+assign outputSignal = (inputSignalOne ~^ inputSignalTwo);
 
 endmodule

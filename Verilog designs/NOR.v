@@ -1,29 +1,47 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    17:01:45 03/05/2017 
-// Design Name: 
-// Module Name:    NOR 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
-module NOR(
-    input in1,
-    input in2,
-    output out
-    );
-	
-	buf#(3,2) (out,~(in1 | in2));
+/**************************************************************************************************
+*                  <2019> Interceptor
+*          Please refer to license.txt for the 
+*          legal contents of this software build
+***************************************************************************************************
+*Project:          Verilog Modules
+*File Name:        NOR.v
+*Description:      This file takes two inputs and outputs the NOR output of them
+***************************************************************************************************
+*Change History:
+*   Version        Date            Author          Description
+*   -------        ----            ------          -----------
+*   1.0            29/01/18        Rubber-Duck-999 Creation of file
+*
+***************************************************************************************************
+*Logic table:
+*   Input 1  |     Input 2    |    Output
+*   -----    |     -----      |    ------
+*     0      |       0        |       1
+*     0      |       1        |       0
+*     1      |       0        |       0
+*     1      |       1        |       0
+*
+***************************************************************************************************
+*Parameters:
+*   Name           Direction       Description
+*   ----           ---------       ----
+*   inputSignalOne Input           This is the first  input signal
+*   inputSignalTwo Input           This is the second input signal
+*   outputSignal    Output          This is the output boolean signal 
+*
+***************************************************************************************************/
+module NAND
+(
+    inputSignalOne,
+    inputSignalTwo,
+    outputSignal
+);
+
+input  inputSignalOne;
+input  inputSignalTwo;
+
+output outputSignal;
+
+assign outputSignal = (inputSignalOne ~| inputSignalTwo);
 
 endmodule

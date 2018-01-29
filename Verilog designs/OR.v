@@ -4,8 +4,8 @@
 *          legal contents of this software build
 ***************************************************************************************************
 *Project:          Verilog Modules
-*File Name:        XOR.v
-*Description:      This file takes two inputs and outputs the XOR output of them
+*File Name:        OR.v
+*Description:      This file takes two inputs and outputs the OR output of them
 ***************************************************************************************************
 *Change History:
 *   Version        Date            Author          Description
@@ -19,18 +19,18 @@
 *     0      |       0        |       0
 *     0      |       1        |       1
 *     1      |       0        |       1
-*     1      |       1        |       0
+*     1      |       1        |       1
 *
 ***************************************************************************************************
 *Parameters:
 *   Name           Direction       Description
 *   ----           ---------       ----
-*   inputSignalOne Input           This is the first  input signal
+*   inputSignalOne Input           This is the first input signal
 *   inputSignalTwo Input           This is the second input signal
 *   outputSignal   Output          This is the output boolean signal 
 *
 ***************************************************************************************************/
-module NAND
+module NOR
 (
     inputSignalOne,
     inputSignalTwo,
@@ -42,6 +42,6 @@ input  inputSignalTwo;
 
 output outputSignal;
 
-assign outputSignal = (inputSignalOne ^ inputSignalTwo);
+assign outputSignal = (inputSignalOne | inputSignalTwo);
 
 endmodule

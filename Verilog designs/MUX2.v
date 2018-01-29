@@ -1,35 +1,50 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    17:27:17 03/05/2017 
-// Design Name: 
-// Module Name:    MUX2 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
-module MUX2(    
-	 input [1:0] in,
-	 input sel,
-    output out
-    );
-	 
-	 wire notS,A0,A1 ;	 
+/**************************************************************************************************
+*                  <2019> Interceptor
+*          Please refer to license.txt for the 
+*          legal contents of this software build
+***************************************************************************************************
+*Project:          Verilog Modules
+*File Name:        MUX4.v
+*Description:      This file takes three inputs, two buses and one select to select a bus output
+***************************************************************************************************
+*Change History:
+*   Version        Date            Author          Description
+*   -------        ----            ------          -----------
+*   1.0            29/01/18        Rubber-Duck-999 Creation of file
+*
+***************************************************************************************************
+*Logic table:
+*   Input 1  |     Input 2    |     Select     |    Output
+*   -----    |     -----      |     -----      |    ------
+*   0000     |     1111       |       0        |       0
+*   0001     |     1000       |       0        |       1
+*   0010     |     0100       |       0        |       1
+*   0100     |     0010       |       0        |       1
+*
+***************************************************************************************************
+*Parameters:
+*   Name             Direction       Description
+*   ----             ---------       ----
+*   inputSignalOne   Input           This is the first input signal
+*   inputSignalTwo   Input           This is the second input signal
+*   inputSignalThree Input           This is the third input signal
+*   outputSignal     Output          This is the output boolean signal 
+*
+***************************************************************************************************/
+module NOR
+(
+    inputSignalBusOne,
+    inputSignalBusTwo,
+	inputSignalSelect,
+    outputSignalBus
+);
 
-	 INVERTER i1(sel,notS);
-	 NAND n1(notS,in[0],A0);
-	 NAND n2(sel,in[1],A1);
-	 NAND n3(A1,A0,out);
-	
+input  [3:0]  inputSignalBusOne;
+input  [3:0]  inputSignalBusTwo;
+input         inputSignalSelect;
+
+output outputSignalBus;
+
+assign outputSignalBus = (inputSignalSelect) ? inputSignalBusOne: inputSignalBusTwo;
 
 endmodule

@@ -4,8 +4,8 @@
 *          legal contents of this software build
 ***************************************************************************************************
 *Project:          Verilog Modules
-*File Name:        MUX4.v
-*Description:      This file takes three inputs, two buses and one select to select a bus output
+*File Name:        Intermediate_Signal.v
+*Description:      This file takes three inputs, then OR's them, then outputs the AND output of them
 ***************************************************************************************************
 *Change History:
 *   Version        Date            Author          Description
@@ -14,14 +14,12 @@
 *
 ***************************************************************************************************
 *Logic table:
-*   Input 1  |     Input 2    |     Select     |    Output
+*   Input 1  |     Input 2    |     Input 3    |    Output
 *   -----    |     -----      |     -----      |    ------
-*   0000     |     1111       |       0        |    1111
-*   0001     |     1000       |       0        |    1000
-*   0010     |     0100       |       0        |    0100
-*   0100     |     0010       |       0        |    0010
-*   1000     |     0001       |       0        |    0001
-*   1111     |     0000       |       1        |    1111
+*     0      |       0        |       0        |       0
+*     0      |       1        |       1        |       1
+*     1      |       0        |       0        |       1
+*     1      |       1        |       1        |       1
 *
 ***************************************************************************************************
 *Parameters:
@@ -35,18 +33,24 @@
 ***************************************************************************************************/
 module NOR
 (
-    inputSignalBusOne,
-    inputSignalBusTwo,
-	inputSignalSelect,
-    outputSignalBus
+    inputSignalOne,
+    inputSignalTwo,
+	inputSignalThree,
+    outputSignal
 );
 
-input  [3:0]  inputSignalBusOne;
-input  [3:0]  inputSignalBusTwo;
-input         inputSignalSelect;
+input  inputSignalOne;
+input  inputSignalTwo;
+input  inputSignalThree;
 
-output [3:0]  outputSignalBus;
+output outputSignal;
 
-assign outputSignalBus = (inputSignalSelect) ? inputSignalBusOne: inputSignalBusTwo;
+wire   intermediateSignalOne;
+wire   intermediateSignalTwo;
+
+assign intermediateSignalOne = (inputSignalOne | inputSignalTwo);
+assign intermediateSignalTwo = (inputSignalTwo | inputSignalThree);
+
+assign outputSignal = (intermediateSignalOne & intermediateSignalTwo);
 
 endmodule
