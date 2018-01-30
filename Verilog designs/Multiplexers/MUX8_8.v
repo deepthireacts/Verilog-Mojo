@@ -4,7 +4,7 @@
 *          legal contents of this software build
 ***************************************************************************************************
 *Project:          Verilog Modules
-*File Name:        MUX4.v
+*File Name:        MUX8_8.v
 *Description:      This file takes three inputs, two buses and one select to select a bus output
 ***************************************************************************************************
 *Change History:
@@ -14,26 +14,26 @@
 *
 ***************************************************************************************************
 *Logic table:
-*   Input 1  |     Input 2    |     Select     |    Output
-*   -----    |     -----      |     -----      |    ------
-*   0000     |     1111       |       0        |    1111
-*   0001     |     1000       |       0        |    1000
-*   0010     |     0100       |       0        |    0100
-*   0100     |     0010       |       0        |    0010
-*   1000     |     0001       |       0        |    0001
-*   1111     |     0000       |       1        |    1111
+*   Input 1     |     Input 2     |     Select     |    Output
+*   -----       |     -----       |     -----      |    ------
+*   0000 0000   |     0000 1111   |       0        |    0000 1111
+*   0001 0000   |     0000 1000   |       0        |    0000 1000
+*   0010 0000   |     0000 0100   |       0        |    0000 0100
+*   0100 0000   |     0000 0010   |       0        |    0000 0010
+*   1000 0000   |     0000 0001   |       0        |    0000 0001
+*   1111 0000   |     0000 0000   |       1        |    1111 0000
 *
 ***************************************************************************************************
 *Parameters:
-*   Name             Direction       Description
-*   ----             ---------       ----
-*   inputSignalOne   Input           This is the first input signal
-*   inputSignalTwo   Input           This is the second input signal
-*   inputSignalThree Input           This is the third input signal
-*   outputSignal     Output          This is the output boolean signal 
+*   Name              Direction       Description
+*   ----              ---------       ----
+*   inputSignalBusOne Input           This is the first input signal
+*   inputSignalBusTwo Input           This is the second input signal
+*   inputSignalSelect Input           This is the select input signal
+*   outputSignalBus   Output          This is the output boolean signal 
 *
 ***************************************************************************************************/
-module NOR
+module MUX8_8
 (
     inputSignalBusOne,
     inputSignalBusTwo,
@@ -41,11 +41,11 @@ module NOR
     outputSignalBus
 );
 
-input  [3:0]  inputSignalBusOne;
-input  [3:0]  inputSignalBusTwo;
+input  [7:0]  inputSignalBusOne;
+input  [7:0]  inputSignalBusTwo;
 input         inputSignalSelect;
 
-output [3:0]  outputSignalBus;
+output [7:0]  outputSignalBus;
 
 assign outputSignalBus = (inputSignalSelect) ? inputSignalBusOne: inputSignalBusTwo;
 

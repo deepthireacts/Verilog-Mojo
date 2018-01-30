@@ -4,8 +4,8 @@
 *          legal contents of this software build
 ***************************************************************************************************
 *Project:          Verilog Modules
-*File Name:        MUX4.v
-*Description:      This file takes three inputs, two buses and one select to select a bus output
+*File Name:        MUX2_1.v
+*Description:      This file takes two inputs, one bus and one select to select a bus output
 ***************************************************************************************************
 *Change History:
 *   Version        Date            Author          Description
@@ -14,37 +14,34 @@
 *
 ***************************************************************************************************
 *Logic table:
-*   Input 1  |     Input 2    |     Select     |    Output
-*   -----    |     -----      |     -----      |    ------
-*   0000     |     1111       |       0        |       0
-*   0001     |     1000       |       0        |       1
-*   0010     |     0100       |       0        |       1
-*   0100     |     0010       |       0        |       1
+*   Input 1  |     Select     |    Output
+*   -----    |     -----      |    ------
+*   00       |       0        |    0
+*   01       |       0        |    1
+*   10       |       0        |    0
+*   11       |       1        |    1
 *
 ***************************************************************************************************
 *Parameters:
-*   Name             Direction       Description
-*   ----             ---------       ----
-*   inputSignalOne   Input           This is the first input signal
-*   inputSignalTwo   Input           This is the second input signal
-*   inputSignalThree Input           This is the third input signal
-*   outputSignal     Output          This is the output boolean signal 
+*   Name              Direction       Description
+*   ----              ---------       ----
+*   inputSignalBusOne Input           This is the first input signal
+*   inputSignalSelect Input           This is the select input signal
+*   outputSignal      Output          This is the output boolean signal 
 *
 ***************************************************************************************************/
-module NOR
+module MUX2_1
 (
     inputSignalBusOne,
-    inputSignalBusTwo,
 	inputSignalSelect,
-    outputSignalBus
+    outputSignal
 );
 
-input  [3:0]  inputSignalBusOne;
-input  [3:0]  inputSignalBusTwo;
+input  [1:0]  inputSignalBusOne;
 input         inputSignalSelect;
 
-output outputSignalBus;
+output        outputSignal;
 
-assign outputSignalBus = (inputSignalSelect) ? inputSignalBusOne: inputSignalBusTwo;
+assign outputSignal = inputSignalBusOne[inputSignalSelect];
 
 endmodule
