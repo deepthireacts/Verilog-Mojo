@@ -4,8 +4,8 @@
 *          legal contents of this software build
 ***************************************************************************************************
 *Project:          Verilog Modules
-*File Name:        MUX8_1.v
-*Description:      This file takes two inputs, one bus and one select to select a bus output
+*File Name:        dFlip_Flop1.v
+*Description:      This file takes one input, a clock and outputs one signal
 ***************************************************************************************************
 *Change History:
 *   Version        Date            Author          Description
@@ -17,11 +17,11 @@
 *   Input 1    |    Clock      |    Output
 *   -----      |    -----      |    ------
 *   0          |    0          |    0
+*   0          |    1          |    0
 *   1          |    0          |    0
 *   1          |    1          |    1
 *   0          |    0          |    1
 *   0          |    1          |    0
-*   0          |    0          |    0
 *
 ***************************************************************************************************
 *Parameters:
@@ -47,6 +47,7 @@ output outputSignal;
 reg    outputSignal;
 
 always @(posedge clk)
-   outputSignal = inputSignal;
-
+  begin
+    outputSignal = inputSignal;
+  end
 endmodule
